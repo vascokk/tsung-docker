@@ -5,7 +5,7 @@
     "type": "DOCKER",
     "volumes": [
       {
-        "containerPath": "/usr/share/nginx/html/tsung",
+        "containerPath": "/usr/share/nginx/html",
         "hostPath": "/var/lib/log/tsung",
         "mode": "RO"
       }
@@ -20,7 +20,7 @@
   },
   "cpus": 0.5,
   "mem": 512.0,
-  "constraints": [["hostname", "CLUSTER", "10.0.66.12"]],
+  "constraints": [["hostname", "CLUSTER",  "'${TSUNG_MASTER_HOST}'"]],
   "ports": [
     0
   ],

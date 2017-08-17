@@ -26,9 +26,28 @@ fi
 
 current_date=$(date +%Y%m%d-%H%M)
 echo "Tsung log directory should be ${current_date}"
+
+start_stats()
+{
+    sleep 5
+
+    cp /usr/lib/tsung/bin/tsung_stats.pl /usr/local/tsung/${current_date}/
+    chmod a+x /usr/local/tsung/${current_date}/tsung_stats.pl
+
+    cd /usr/local/tsung/${current_date}/
+    rm -f index.html
+
+    while :
+    do
+        ./tsung_stats.pl
+        sleep 5
+    done
+
+}
+
+start_stats &
+
 cmd="tsung -l /usr/local/tsung/ "$@" start"
 echo "Executin ${cmd} ..."
 # ${cmd}
 exec $cmd
-# cd /usr/local/tsung/${current_date}/ && /usr/lib64/tsung/bin/tsung_stats.pl
-
