@@ -3,16 +3,19 @@
 # Utility to run tsung and automatically generate reports
 
 # make sure SSHD is started in order to connect to other tsung agents
-service sshd start
+service ssh start
+# /etc/init.d/ssh start
+# /etc/init.d/cron start
+
 
 # start crontab to update tsung hosts found in the cluster
 echo ${MARATHON_URL} > /etc/tsung/marathon_url
 crontab /etc/crontab
-service crond start
+service cron start
 
 
 slave=$(echo $SLAVE)
-if [[ -n "${slave}" ]]; then
+if [ -n "${slave}" ]; then
     echo "Running in SLAVE mode ..."
     tail -f /var/log/tsung/tsung-update-hosts.log
     exit
@@ -23,8 +26,9 @@ fi
 
 current_date=$(date +%Y%m%d-%H%M)
 echo "Tsung log directory should be ${current_date}"
-cmd='tsung -l /usr/local/tsung/ '$@
+cmd="tsung -l /usr/local/tsung/ "$@" start"
 echo "Executin ${cmd} ..."
-${cmd}
-cd /usr/local/tsung/${current_date}/ && /usr/lib64/tsung/bin/tsung_stats.pl
+# ${cmd}
+exec $cmd
+# cd /usr/local/tsung/${current_date}/ && /usr/lib64/tsung/bin/tsung_stats.pl
 

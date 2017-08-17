@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE tsung SYSTEM "/usr/local/share/tsung/tsung-1.0.dtd">
+<tsung loglevel="warning">
+    <clients>
+        <client host="localhost" cpu="2" maxusers="30000000"/>
+        <client host="localhost" cpu="2" maxusers="30000000"/>
+    </clients>
+    <servers>
+        <server host="www.example.com" port="80" type="tcp"/>
+    </servers>
+    <load>
+        <arrivalphase phase="1" duration="100" unit="minute">
+            <users arrivalrate="5" unit="second"/>
+        </arrivalphase>
+    </load>
+    <sessions>
+        <session name="es_load" weight="1" type="ts_http">
+            <request>
+                <http url="/index.html" method="GET"/>
+            </request>
+        </session>
+    </sessions>
+</tsung>

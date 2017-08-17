@@ -1,0 +1,91 @@
+{
+  "id": "tsung-master",
+  "container": {
+    "type": "DOCKER",
+    "volumes": [
+      {
+        "containerPath": "/usr/local/tsung",
+        "hostPath": "/var/lib/log/tsung",
+        "mode": "RW"
+      }
+    ],
+    "docker": {
+      "image": "192.168.128.109/tsung-docker:latest",
+      "forcePullImage": true,
+      "network": "BRIDGE",
+      "portMappings": [
+        { "containerPort": 22, "hostPort": 1025, "protocol": "tcp" },
+        { "containerPort": 4369, "hostPort": 4369, "protocol": "tcp" },
+        { "containerPort": 19001, "hostPort": 19001, "protocol": "tcp" },
+        { "containerPort": 19002, "hostPort": 19002, "protocol": "tcp" },
+        { "containerPort": 19003, "hostPort": 19003, "protocol": "tcp" },
+        { "containerPort": 19004, "hostPort": 19004, "protocol": "tcp" },
+        { "containerPort": 19005, "hostPort": 19005, "protocol": "tcp" },
+        { "containerPort": 19006, "hostPort": 19006, "protocol": "tcp" },
+        { "containerPort": 19007, "hostPort": 19007, "protocol": "tcp" },
+        { "containerPort": 19008, "hostPort": 19008, "protocol": "tcp" },
+        { "containerPort": 19009, "hostPort": 19009, "protocol": "tcp" },
+        { "containerPort": 19010, "hostPort": 19010, "protocol": "tcp" },
+        { "containerPort": 19011, "hostPort": 19011, "protocol": "tcp" },
+        { "containerPort": 19012, "hostPort": 19012, "protocol": "tcp" },
+        { "containerPort": 19013, "hostPort": 19013, "protocol": "tcp" },
+        { "containerPort": 19014, "hostPort": 19014, "protocol": "tcp" },
+        { "containerPort": 19015, "hostPort": 19015, "protocol": "tcp" },
+        { "containerPort": 19016, "hostPort": 19016, "protocol": "tcp" },
+        { "containerPort": 19017, "hostPort": 19017, "protocol": "tcp" },
+        { "containerPort": 19018, "hostPort": 19018, "protocol": "tcp" },
+        { "containerPort": 19019, "hostPort": 19019, "protocol": "tcp" },
+        { "containerPort": 19020, "hostPort": 19020, "protocol": "tcp" },
+        { "containerPort": 19021, "hostPort": 19021, "protocol": "tcp" },
+        { "containerPort": 19022, "hostPort": 19022, "protocol": "tcp" },
+        { "containerPort": 19023, "hostPort": 19023, "protocol": "tcp" },
+        { "containerPort": 19024, "hostPort": 19024, "protocol": "tcp" },
+        { "containerPort": 19025, "hostPort": 19025, "protocol": "tcp" },
+        { "containerPort": 19026, "hostPort": 19026, "protocol": "tcp" },
+        { "containerPort": 19027, "hostPort": 19027, "protocol": "tcp" },
+        { "containerPort": 19028, "hostPort": 19028, "protocol": "tcp" },
+        { "containerPort": 19029, "hostPort": 19029, "protocol": "tcp" },
+        { "containerPort": 19030, "hostPort": 19030, "protocol": "tcp" },
+        { "containerPort": 19031, "hostPort": 19031, "protocol": "tcp" },
+        { "containerPort": 19032, "hostPort": 19032, "protocol": "tcp" },
+        { "containerPort": 19033, "hostPort": 19033, "protocol": "tcp" },
+        { "containerPort": 19034, "hostPort": 19034, "protocol": "tcp" },
+        { "containerPort": 19035, "hostPort": 19035, "protocol": "tcp" },
+        { "containerPort": 19036, "hostPort": 19036, "protocol": "tcp" },
+        { "containerPort": 19037, "hostPort": 19037, "protocol": "tcp" },
+        { "containerPort": 19038, "hostPort": 19038, "protocol": "tcp" },
+        { "containerPort": 19039, "hostPort": 19039, "protocol": "tcp" },
+        { "containerPort": 19040, "hostPort": 19040, "protocol": "tcp" },
+        { "containerPort": 19041, "hostPort": 19041, "protocol": "tcp" },
+        { "containerPort": 19042, "hostPort": 19042, "protocol": "tcp" },
+        { "containerPort": 19043, "hostPort": 19043, "protocol": "tcp" },
+        { "containerPort": 19044, "hostPort": 19044, "protocol": "tcp" },
+        { "containerPort": 19045, "hostPort": 19045, "protocol": "tcp" },
+        { "containerPort": 19046, "hostPort": 19046, "protocol": "tcp" },
+        { "containerPort": 19047, "hostPort": 19047, "protocol": "tcp" },
+        { "containerPort": 19048, "hostPort": 19048, "protocol": "tcp" },
+        { "containerPort": 19049, "hostPort": 19049, "protocol": "tcp" },
+        { "containerPort": 19050, "hostPort": 19050, "protocol": "tcp" }
+      ],
+      "parameters": [
+        { "key": "hostname", "value": "tsung_master" }
+      ]
+    }
+  },
+  "cpus": 1,
+  "mem": 512.0,
+  "env": {
+    "MARATHON_URL":"http://192.168.128.123:8080"
+  },
+  "constraints": [ [ "hostname", "UNIQUE" ] ],
+  "ports": [
+    1025,
+    4369,
+    9001,9002,9003,9004,9005,9006,9007,9008,9009,9010,
+    9011,9012,9013,9014,9015,9016,9017,9018,9019,9020,
+    9021,9022,9023,9024,9025,9026,9027,9028,9029,9030,
+    9031,9032,9033,9034,9035,9036,9037,9038,9039,9040,
+    9041,9042,9043,9044,9045,9046,9047,9048,9049,9050
+  ],
+  "instances": 1
+}
